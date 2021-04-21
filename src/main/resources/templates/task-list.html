@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" class="font">
+<head class="font">
+  <meta charset="UTF-8">
+    <title>Simple Task</title>
+  <link th:href="@{css/style-list.css}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+<div class="title">
+  <h1>Simple Task</h1>
+  <p>Your simple Journal</p>
+</div>
+<div th:switch="${tasks}" class="table">
+  <h2 th:case="null" class="font">No tasks found!</h2>
+  <div th:case="*">
+    <h2 class="font">Tasks</h2>
+    <table >
+      <thead>
+      <tr>
+        <th>Task</th>
+        <th>Deadline</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="task : ${tasks}">
+        <td th:text="${task.taskText}"></td>
+        <td th:text="${task.deadline}"></td>
+        <td><div class="font">
+          <a th:href="@{task-update/{id}(id=${task.id})}"><div class="btn btn-three">
+            <span>Edit</span>
+          </div></a>
+        </div></td>
+        <td><div class="font">
+          <a th:href="@{task-delete/{id}(id=${task.id})}"><div class="btn btn-three">
+            <span>Delete</span>
+          </div></a>
+        </div></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="font">
+    <a href="/task-create"><div class="btn btn-three create">
+      <span>Create Task</span>
+    </div></a>
+  </div>
+</div>
+</body>
+</html>

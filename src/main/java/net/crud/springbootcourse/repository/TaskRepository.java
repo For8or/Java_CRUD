@@ -1,8 +1,8 @@
 package net.crud.springbootcourse.repository;
 
 
-import net.crud.springbootcourse.model.User;
+import net.crud.springbootcourse.model.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface TaskRepository extends JpaRepository<Task, Long> {
 }

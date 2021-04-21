@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" class="font">
+<head  class="font">
+  <meta charset="UTF-8">
+  <title>Create Task</title>
+  <link th:href="@{css/style-list.css}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+<div class="title">
+  <h1>Create</h1>
+</div>
+<form action="#" th:action="@{/task-create}" th:object="${task}" method="post" class="table">
+  <label for="taskText">Task</label>
+  <input type="text" th:field="*{taskText}" id="taskText" placeholder="Task">
+  <label for="deadline">Deadline</label>
+  <input type="text" th:field="*{deadline}" id="deadline" placeholder="Deadline">
+  <div class="font">
+    <button type="submit" class="btn btn-three create">
+      Create Task
+    </button>
+  </div>
+</form>
+</body>
+</html>
